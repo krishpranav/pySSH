@@ -16,5 +16,16 @@ class SSH_Server(paramiko.ServerInterface):
 
 def Reveal(keyfile, port):
     print "\n==================== pySSH (SSH Password Revieler) ===================="
-    
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind(('', port))
+        s.listen(5)
+        while 1:
+            client, addr = s.accept()
+            sess = paramiko.Transport(client)
+            sess.add_server_key(paramiko.RSAKey(filename=keyfile))
+            sess.start_server(server=SSH_Server())
+    except Exception as e:
+        print "[-] Exception: " + str(e)
+
     
