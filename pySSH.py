@@ -15,6 +15,7 @@ try:
 except ImportError:
     print "[+] paramiko pip module missing installing [+]"
     time.sleep(1)
+    os.system('sudo apt-get install python-pip')
     os.system('pip install paramiko')
 
 
