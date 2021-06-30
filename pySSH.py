@@ -33,5 +33,13 @@ if __name__ == "__main__":
     p.add_argument('-k', '--keyfile')
     p.add_argument('-p', '--port', type=int)
     args = p.parse_args()
-    
+
+    if (not args.keyfile) or (not args.port):
+        print "[*] Arguments are missing.  Usage: python " + sys.argv[0] + " -k [RSA private key file] -p [port]\n"
+        sys.exit(0)
+
+    else:
+        Reveal(args.keyfile, args.port)
+
+
     
