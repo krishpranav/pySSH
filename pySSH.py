@@ -5,8 +5,17 @@ import sys
 import socket
 import argparse
 import logging 
+import time
+import os
 
-import paramiko
+# import paramiko
+
+try:
+    import paramiko
+except ImportError:
+    print "[+] paramiko pip module missing installing [+]"
+    time.sleep(1)
+    os.system('pip install paramiko')
 
 
 class SSH_Server(paramiko.ServerInterface):
