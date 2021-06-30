@@ -28,4 +28,10 @@ def Reveal(keyfile, port):
     except Exception as e:
         print "[-] Exception: " + str(e)
 
+if __name__ == "__main__":
+    p = argparse.ArgumentParser()
+    p.add_argument('-k', '--keyfile')
+    p.add_argument('-p', '--port', type=int)
+    args = p.parse_args()
+    
     
