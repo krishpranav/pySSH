@@ -15,5 +15,6 @@ class SSH_Server(paramiko.ServerInterface):
         return paramiko.AUTH_FAILED
 
 def Reveal(keyfile, port):
-    print "\n==================== pySSH (SSH Password Revieler)"
+    print "\n==================== pySSH (SSH Password Revieler) ===================="
+    
     
